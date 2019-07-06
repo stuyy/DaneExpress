@@ -1,7 +1,7 @@
 <main>
   <mat-tab-group mat-align-tabs="center" backgroundColor="primary" dynamicHeight >
     <mat-tab label="Home">
-      <div>
+      <div class="home">
         <mat-card class="my-card">
           <mat-card-header>
             <mat-card-title>Dane Express</mat-card-title>
@@ -9,36 +9,25 @@
             <img mat-card-avatar src="assets/dane.png">
           </mat-card-header>
           <mat-card-content>
-            <p class="lead">Dane Express brings together students all across the University to keep people updated with news, events, social-gathers, and more!</p>
+            <p class="lead">Dane Express brings together students all across the University to keep people updated with news, events, social-gathers, and more! Sign up and start networking with other students!</p>
           </mat-card-content>
-          <mat-card-actions align="end">
-            <button mat-raised-button color="primary">Subscribe <mat-icon>done</mat-icon></button>
-            <button mat-raised-button color="primary">Connect <mat-icon>person_add</mat-icon></button>
+          <mat-card-actions align="center">
+            <button mat-raised-button color="primary" (click)="register()">Register</button>
+            <button mat-raised-button color="primary" (click)="login()">Login</button>
           </mat-card-actions>
         </mat-card>
+        <app-register-form *ngIf="showRegister"></app-register-form>
+        <app-login-form *ngIf="showLogin"></app-login-form>
       </div>
     </mat-tab>
     <mat-tab label="News">
       <app-news-feed></app-news-feed>
     </mat-tab>
     <mat-tab label="Forum">
-        <div>
-            <mat-card class="my-card">
-              <mat-card-header>
-                <mat-card-title>Dane Express</mat-card-title>
-                <mat-card-subtitle>A place to socialize, hangout, and meet new people.</mat-card-subtitle>
-                <img mat-card-avatar src="assets/dane.png">
-              </mat-card-header>
-              <mat-card-content>
-                <p class="lead">Dane Express brings together students all across the University to keep people updated with news, events, social-gathers, and more!</p>
-              </mat-card-content>
-              <mat-card-actions align="end">
-                <button mat-raised-button color="primary">Subscribe <mat-icon>done</mat-icon></button>
-                <button mat-raised-button color="primary">Connect <mat-icon>person_add</mat-icon></button>
-              </mat-card-actions>
-            </mat-card>
-          </div>
+      <app-forum></app-forum>
     </mat-tab>
-    
+    <mat-tab label="Courses">
+
+    </mat-tab>
   </mat-tab-group>
 </main>

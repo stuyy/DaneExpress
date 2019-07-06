@@ -7,7 +7,9 @@ class ForumCategory {
 class ForumSubCategory {
   private title: string;
   private topicDescription: string;
-
+  private totalPosts: number;
+  private recentPost: string;
+  
   constructor(title: string, desc: string)
   {
     this.title = title;

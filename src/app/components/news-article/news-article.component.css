@@ -1,5 +1,12 @@
 .news-article {
-  width: 80%;
+  width: 50%;
   margin:0 auto;
   margin-top: 5px;
+}
+
+@media only screen and (max-width: 1400px)
+{
+  .news-article {
+    width: 100%;
+  }
 }
