@@ -5,3 +5,9 @@
 body {
   background-color: #7171A0;
 }
+.header-panel > .mat-content {
+  justify-content: space-between;
+}
+.mat-content > mat-panel-title, .mat-content > mat-panel-description {
+  flex: 0 0 auto;
+}
