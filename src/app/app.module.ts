@@ -15,11 +15,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatListModule} from '@angular/material/list';
 import {MatCardModule} from '@angular/material/card';
-
+import { NewsFeedComponent } from './components/news-feed/news-feed.component';
+import { NewsArticleComponent } from './components/news-article/news-article.component';
+import {MatBadgeModule} from '@angular/material/badge';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    NewsFeedComponent,
+    NewsArticleComponent,
   ],
   imports: [
     BrowserModule,
@@ -35,7 +39,8 @@ import {MatCardModule} from '@angular/material/card';
     MatToolbarModule,
     MatDividerModule,
     MatListModule,
-    MatCardModule
+    MatCardModule,
+    MatBadgeModule
     
   ],
   providers: [],

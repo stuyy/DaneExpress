@@ -1,4 +1,17 @@
-<mat-card>
-  <mat-card-title>{{article.title}}</mat-card-title>
-  <mat-card-subtitle>{{article.date}}</mat-card-subtitle>
+<mat-card class="news-article">
+  <mat-card-header>
+    <mat-card-title>{{article.title}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    {{article.description}}
+  </mat-card-content>
+  <mat-card-actions>
+      <button mat-raised-button color="primary"
+      matBadge={{article.badges}} matBadgePosition="before" matBadgeColor="accent">
+    React
+  </button>
+  </mat-card-actions>
+  <mat-card-footer>
+    <mat-card-subtitle>{{article.date}}</mat-card-subtitle>
+  </mat-card-footer>
 </mat-card>

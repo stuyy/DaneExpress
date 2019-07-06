@@ -1,5 +1,18 @@
 .my-card {
   width: 60%;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.my-card {
+  background-color: #E8C400;
+  border: 1px solid purple;
+}
+
+@media only screen and (max-width: 1400px)
+{
+  .my-card {
+    width: 100%;
+    margin-top: 0;
+  }
 }
