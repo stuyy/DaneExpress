@@ -6,12 +6,14 @@
     {{article.description}}
   </mat-card-content>
   <mat-card-actions>
-      <button mat-raised-button color="primary"
-      matBadge={{article.badges}} matBadgePosition="before" matBadgeColor="accent">
-    React
-  </button>
+    <button mat-raised-button (click)="react(article, $event)" matBadge={{article.likes}} matBadgeSize="small" id="like">
+      <mat-icon color="primary">thumb_up</mat-icon>
+    </button>
+    <button mat-raised-button (click)="react(article, $event)" matBadge={{article.dislikes}} matBadgeSize="small" id="dislike">
+      <mat-icon color="warn">thumb_down</mat-icon>
+    </button>
   </mat-card-actions>
   <mat-card-footer>
-    <mat-card-subtitle>{{article.date}}</mat-card-subtitle>
+    <mat-card-subtitle class="ml-md-3">{{article.date}}</mat-card-subtitle>
   </mat-card-footer>
 </mat-card>
