@@ -4,20 +4,6 @@
     <mat-card-subtitle>Sign up now to start connecting!</mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    <!-- <form class="form">
-      <mat-form-field >
-        <input matInput placeholder="Username">
-      </mat-form-field>
-      <mat-form-field >
-        <input matInput placeholder="Email" type='email'>
-      </mat-form-field>
-      <mat-form-field >
-        <input matInput placeholder="Password" type='password'>
-      </mat-form-field>
-      <mat-form-field >
-        <input matInput placeholder="Confirm Password" type='password'>
-      </mat-form-field>
-    </form> -->
     <mat-vertical-stepper [linear]="isLinear" #stepper>
       <mat-step [stepControl]="firstFormGroup">
         <form [formGroup]="firstFormGroup">
@@ -46,7 +32,7 @@
         <form [formGroup]="passwordGroup">
           <ng-template matStepLabel>Enter a password</ng-template>
           <mat-form-field>
-            <input matInput [(ngModel)]="password" placeholder="Password" formControlName="password" type="password" required>
+            <input matInput [(ngModel)]="password" placeholder="Password" formControlName="thirdCtrl" type="password" required>
           </mat-form-field>
           <div>
             <button mat-button matStepperPrevious>Back</button>
@@ -57,10 +43,11 @@
       <mat-step>
         <ng-template matStepLabel>Confirm</ng-template>
         
-        <mat-list>
+        <mat-list *ngIf="!loading">
           <mat-list-item>Your Username: {{username}}</mat-list-item>
           <mat-list-item>Your E-Mail: {{email}}</mat-list-item>
         </mat-list>
+        <mat-spinner *ngIf="loading"></mat-spinner>
         <div>
           <button mat-button matStepperPrevious>Back</button>
           <button mat-button (click)="register()">Confirm</button>
