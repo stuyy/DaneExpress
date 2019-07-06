@@ -12,6 +12,17 @@ export class NewsArticleComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
 
+  }
+  react(article, event) {
+    if(event.target.id === "like") {
+      console.log("Liking.")
+      article.likes++;
+    }
+    else if(event.target.id === "dislike")
+    {
+      console.log("Disliking.")
+      article.dislikes++;
+    }
+  }
 }
