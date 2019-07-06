@@ -1,15 +1,16 @@
-<mat-expansion-panel [expanded]="true">
-    <mat-expansion-panel-header>
+<mat-expansion-panel [expanded]="true" class="forum-section">
+    <mat-expansion-panel-header class="header-panel">
       <mat-panel-title>
         {{forumSection.title}}
       </mat-panel-title>
-      <mat-panel-description>
-        {{forumSection.description}}
+      <mat-panel-description align="end">
+        {{forumSection.categoryDescription}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <ul>
-      <li *ngFor="let subCategories of forumSection.forumSubcategories">
-        {{subCategories.title}}
-      </li>
-    </ul>
+    <mat-card *ngFor="let categories of forumSection.forumSubcategories" class="cat-card mt-xl-2">
+      <mat-card-header>
+        <mat-card-title>{{categories.title}}</mat-card-title>
+        <mat-card-subtitle>{{categories.topicDescription}}</mat-card-subtitle>
+      </mat-card-header>
+    </mat-card>
 </mat-expansion-panel>
