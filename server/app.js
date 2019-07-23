@@ -3,9 +3,14 @@ const app = express();
 
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
+const cors = require('cors');
 
-app.use(morgan(':method :url :status :res[content-length] - :response-time ms'));
+app.use(morgan('tiny'));
 app.use(bodyParser.json());
+app.use(cors({
+    origin: 'http://localhost:4200',
+    credentials: true
+}));
 
 const PORT = 3001 || process.env.PORT;
 
