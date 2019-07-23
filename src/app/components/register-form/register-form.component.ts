@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import axios from 'axios';
 
 @Component({
   selector: 'app-register-form',
@@ -33,6 +34,14 @@ export class RegisterFormComponent implements OnInit {
   private register() {
     alert("Signing up.");
     this.loading=true;
+    axios.post('http://localhost:3001/register', {
+      username: this.username,
+      password: this.password,
+      email: this.email,
+      joinDate: new Date()
+    }, { withCredentials: true})
+    .then(res => console.log(res))
+    .catch(err => console.log(err));
   }
   toggle() {
     this.isOpen = !this.isOpen;
