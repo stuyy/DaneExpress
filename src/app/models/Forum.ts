@@ -9,11 +9,13 @@ class ForumSubCategory {
   private topicDescription: string;
   private totalPosts: number;
   private recentPost: string;
-  
-  constructor(title: string, desc: string)
+  private route: string;
+
+  constructor(title: string, desc: string, route: string)
   {
     this.title = title;
     this.topicDescription = desc;
+    this.route = route;
   }
 }
 

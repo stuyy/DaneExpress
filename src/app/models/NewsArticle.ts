@@ -19,4 +19,5 @@ export class NewsArticle {
   get date() { return this._date }
   get likes() { return this._likes }
   get dislikes() { return this._dislikes }
-}
+
+}   
