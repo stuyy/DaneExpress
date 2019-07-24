@@ -32,7 +32,6 @@ export class RegisterFormComponent implements OnInit {
     })
   }
   private register() {
-    alert("Signing up.");
     this.loading=true;
     axios.post('http://localhost:3001/register', {
       username: this.username,

@@ -6,16 +6,20 @@ router.post('/', async (req, res) => {
     // Validate all of the body data.
     // const errors = validationResult(req);
     // console.log(errors);
-    let user = await User.findOne({ $or: [ { username: req.body.username }, { email: req.body.email }]});
-    if(user) {
-        res.sendStatus(409);
-        console.log("User already exists.");
-        console.log(user);
+    try {
+        let user = await User.findOne({ $or: [ { username: req.body.username }, { email: req.body.email }]});
+        if(user)
+            res.sendStatus(409);
+        else {
+            let user = new User(req.body);
+            user.password = await user.encryptPassword(user.password);
+            await user.save();
+            console.log("Saved User.");
+            // Once they're registered, we will redirect to the login route and log them in.
+        }
     }
-    else {
-        let user = await (new User(req.body)).save(); // Need to hash user's passwords, then we're good.
-        console.log("User Saved.");
-        console.log(user);
+    catch(err) {
+        console.log(err);
     }
 
 });
