@@ -13,9 +13,21 @@ export class APIRequestComponent implements OnInit {
 
   }
 
+  // https://stackoverflow.com/questions/46408537/angular-httpclient-http-failure-during-parsing
   loginUser(userData) {
     return this.http.post("http://localhost:3001/auth/login", userData, {
+      withCredentials: true,
+      responseType: 'text'
+    });
+  }
+  registerUser(userData) {
+    return this.http.post("http://localhost:3001/register", userData, { 
       withCredentials: true
-    }).subscribe();
+    });
+  }
+
+  isAuthorized() {
+    return this.http.get("http://localhost:3001/auth/authorized/", {
+      withCredentials: true })
   }
 }

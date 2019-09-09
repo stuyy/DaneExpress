@@ -21,7 +21,7 @@ export class LoginFormComponent implements OnInit {
 
   }
   login() {
-    console.log(this.apiRequest.loginUser({ username: this.username, password: this.password}));
+    return this.apiRequest.loginUser({ username: this.username, password: this.password});
   }
 
 }

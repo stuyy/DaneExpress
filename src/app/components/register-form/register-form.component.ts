@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import axios from 'axios';
+import { APIRequestComponent } from 'src/app/services/apirequest/apirequest.component';
 
 @Component({
   selector: 'app-register-form',
   templateUrl: './register-form.component.html',
-  styleUrls: ['./register-form.component.css']
+  styleUrls: ['./register-form.component.css'],
+  providers: [ APIRequestComponent ]
 })
 export class RegisterFormComponent implements OnInit {
 
@@ -18,7 +20,7 @@ export class RegisterFormComponent implements OnInit {
   private email: string;
   private loading: boolean = false;
   private isOpen = false;
-  constructor(private _formBuilder: FormBuilder) { }
+  constructor(private _formBuilder: FormBuilder, private apiRequest: APIRequestComponent ) { }
 
   ngOnInit() {
     this.firstFormGroup = this._formBuilder.group({
@@ -33,14 +35,12 @@ export class RegisterFormComponent implements OnInit {
   }
   private register() {
     this.loading=true;
-    axios.post('http://localhost:3001/register', {
+    console.log(this.apiRequest.registerUser({
       username: this.username,
       password: this.password,
       email: this.email,
       joinDate: new Date()
-    }, { withCredentials: true})
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+    }));
   }
   toggle() {
     this.isOpen = !this.isOpen;

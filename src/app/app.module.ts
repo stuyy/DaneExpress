@@ -23,6 +23,8 @@ import { MatInputModule } from '@angular/material/input';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { ForumComponent } from './components/forum/forum.component';
 import { ForumSectionComponent } from './components/forum-section/forum-section.component';
+import { APIRequestComponent } from './services/apirequest/apirequest.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -34,6 +36,7 @@ import { ForumSectionComponent } from './components/forum-section/forum-section.
     LoginFormComponent,
     ForumComponent,
     ForumSectionComponent,
+    APIRequestComponent,
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { ForumSectionComponent } from './components/forum-section/forum-section.
     MatInputModule,
     MatStepperModule,
     ReactiveFormsModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
