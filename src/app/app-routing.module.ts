@@ -3,8 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
 import { ForumComponent } from './components/forum/forum.component';
 const routes: Routes = [
-  { path: 'forum', component: ForumComponent },
-  { path: 'welcome', component: ForumComponent }
+
 ];
 
 @NgModule({
